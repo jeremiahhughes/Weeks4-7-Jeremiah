@@ -1603,7 +1603,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 929371908}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 854845233}
+        m_TargetAssemblyTypeName: DummyManager, Assembly-CSharp
+        m_MethodName: SetColorRed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &929371908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3114,7 +3126,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1934318309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 854845233}
+        m_TargetAssemblyTypeName: DummyManager, Assembly-CSharp
+        m_MethodName: SetColorRandom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1934318309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3271,7 +3295,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1988954471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 854845233}
+        m_TargetAssemblyTypeName: DummyManager, Assembly-CSharp
+        m_MethodName: SetColorBlue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1988954471
 MonoBehaviour:
   m_ObjectHideFlags: 0

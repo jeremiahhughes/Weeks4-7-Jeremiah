@@ -11,6 +11,7 @@ public class DummyManager : MonoBehaviour
     public AudioSource audioSource;
     public float timerVariable;
     public Text timerText;
+    private SpriteRenderer sr;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +30,8 @@ public class DummyManager : MonoBehaviour
         if(currentInstance == null)
         {
             currentInstance = Instantiate(characterPrefab, Vector3.zero, Quaternion.identity);
+            // using GetComponent to get the spriterenderer instead of having a public variable reference
+            sr = currentInstance.GetComponent<SpriteRenderer>();
             audioSource.PlayOneShot(spawnSFX); // plays the spawn audio clip
         }
     }
@@ -40,6 +43,31 @@ public class DummyManager : MonoBehaviour
             audioSource.PlayOneShot(destroySFX); // plays the destroy audio clip 
             Destroy(currentInstance);
             currentInstance = null;
+        }
+    }
+    public void SetColorBlue()
+    {
+        // Change color only if sr is not null
+        if(sr  != null)
+        {
+            sr.color = Color.blue;
+        }
+        
+    }
+    public void SetColorRed()
+    {
+        // Change color only if sr is not null
+        if (sr != null)
+        {
+            sr.color = Color.red;
+        }
+    }
+    public void SetColorRandom()
+    {
+        // Change color only if sr is not null
+        if (sr != null)
+        {
+            sr.color = Random.ColorHSV();
         }
     }
 }
