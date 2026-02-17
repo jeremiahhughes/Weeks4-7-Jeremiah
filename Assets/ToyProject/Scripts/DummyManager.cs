@@ -15,10 +15,26 @@ public class DummyManager : MonoBehaviour
     public Text timerText;
     // using private spriterenderer 
     private SpriteRenderer sr;
+    // Y position variable for the slider
+    private float currentYPosition;
+    // Rotating variable
+    private bool isRotating = false;
+    // sliders
+    public Slider positionSlider;
+    public Slider scaleSlider;
+    public Slider rotationSlider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // setting min and max values of the sliders at the start 
+        positionSlider.minValue = -4f;
+        positionSlider.maxValue = 4f;
+
+        scaleSlider.minValue = 1f;
+        scaleSlider.maxValue = 3f;
+
+        rotationSlider.minValue = 0f;
+        rotationSlider.maxValue = 360f;
     }
 
     // Update is called once per frame
@@ -76,5 +92,9 @@ public class DummyManager : MonoBehaviour
     public void SetScale(float scale) // got this function from required reading 5-1 Sliders at timestamp 6:28
     {
         currentInstance.transform.localScale = Vector3.one * scale;
+    }
+    public void SetYPosition(float yValue)
+    {
+        currentInstance.transform.position = new Vector3(0, yValue, 0);
     }
 }

@@ -696,13 +696,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1736435526}
   m_HandleRect: {fileID: 844586930}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -4
+  m_MaxValue: 4
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 854845233}
+        m_TargetAssemblyTypeName: DummyManager, Assembly-CSharp
+        m_MethodName: SetYPosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &586891298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1185,9 @@ MonoBehaviour:
   audioSource: {fileID: 854845232}
   timerVariable: 0
   timerText: {fileID: 0}
+  positionSlider: {fileID: 557231315}
+  scaleSlider: {fileID: 1746517486}
+  rotationSlider: {fileID: 1334561436}
 --- !u!1 &901756566
 GameObject:
   m_ObjectHideFlags: 0
