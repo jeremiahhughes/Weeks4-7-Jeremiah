@@ -22,4 +22,24 @@ public class DummyManager : MonoBehaviour
     {
         
     }
+
+    public void SpawnCharacter ()
+    {
+        // Check to spawn if the character does not already exist in the scene
+        if(currentInstance == null)
+        {
+            currentInstance = Instantiate(characterPrefab, Vector3.zero, Quaternion.identity);
+            audioSource.PlayOneShot(spawnSFX); // plays the spawn audio clip
+        }
+    }
+    public void DestroyCharacter()
+    {
+        //check to destroy if the character exists in the scene
+        if(currentInstance != null)
+        {
+            audioSource.PlayOneShot(destroySFX); // plays the destroy audio clip 
+            Destroy(currentInstance);
+            currentInstance = null;
+        }
+    }
 }
