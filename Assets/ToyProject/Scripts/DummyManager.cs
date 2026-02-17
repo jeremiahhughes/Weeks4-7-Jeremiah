@@ -6,11 +6,14 @@ public class DummyManager : MonoBehaviour
     // Variables 
     public GameObject characterPrefab;
     GameObject currentInstance;
+    // Audio Clips
     public AudioClip spawnSFX;
     public AudioClip destroySFX;
     public AudioSource audioSource;
+    // for time played text
     public float timerVariable;
     public Text timerText;
+    // using private spriterenderer 
     private SpriteRenderer sr;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -69,5 +72,9 @@ public class DummyManager : MonoBehaviour
         {
             sr.color = Random.ColorHSV();
         }
+    }
+    public void SetScale(float scale) // got this function from required reading 5-1 Sliders at timestamp 6:28
+    {
+        currentInstance.transform.localScale = Vector3.one * scale;
     }
 }
