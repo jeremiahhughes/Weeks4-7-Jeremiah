@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Unity.VisualScripting;
 
 public class DummyManager : MonoBehaviour
 {
@@ -11,18 +13,19 @@ public class DummyManager : MonoBehaviour
     public AudioClip destroySFX;
     public AudioSource audioSource;
     // for time played text
-    public float timerVariable;
-    public Text timerText;
+    public float elapsedTime;
+    public TextMeshProUGUI timerText; //using TextMeshProUGUI from the video below
     // using private spriterenderer 
     private SpriteRenderer sr;
     // Y position variable for the slider
     private float currentYPosition;
     // Rotating variable
-    private bool isRotating = false;
+    private bool isRotating;
     // sliders
     public Slider positionSlider;
     public Slider scaleSlider;
     public Slider rotationSlider;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,7 +43,11 @@ public class DummyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // got this code from this timer video https://www.youtube.com/watch?v=POq1i8FyRyQ at timestamp 1:29
+        elapsedTime += Time.deltaTime;
+        int minutes = Mathf.FloorToInt(elapsedTime/60);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     public void SpawnCharacter ()
@@ -54,6 +61,7 @@ public class DummyManager : MonoBehaviour
             audioSource.PlayOneShot(spawnSFX); // plays the spawn audio clip
         }
     }
+
     public void DestroyCharacter()
     {
         //check to destroy if the character exists in the scene
@@ -64,6 +72,7 @@ public class DummyManager : MonoBehaviour
             currentInstance = null;
         }
     }
+
     public void SetColorBlue()
     {
         // Change color only if sr is not null
@@ -73,6 +82,7 @@ public class DummyManager : MonoBehaviour
         }
         
     }
+
     public void SetColorRed()
     {
         // Change color only if sr is not null
@@ -81,6 +91,7 @@ public class DummyManager : MonoBehaviour
             sr.color = Color.red;
         }
     }
+
     public void SetColorRandom()
     {
         // Change color only if sr is not null
@@ -89,16 +100,28 @@ public class DummyManager : MonoBehaviour
             sr.color = Random.ColorHSV();
         }
     }
-    public void SetScale(float scale) // got this function from required reading 5-1 Sliders at timestamp 6:28
+
+    public void SetScale(float scale) // got this function from required reading 5-1 Sliders at timestamp 6:28 https://www.youtube.com/watch?v=44I1wSNkJFQ
     {
-        currentInstance.transform.localScale = Vector3.one * scale;
+        if ( currentInstance != null) // if you move the slider before you spawn the character it gives you a null reference error so i added this so that doesnt show 
+        {
+            currentInstance.transform.localScale = Vector3.one * scale;
+        }
     }
-    public void SetYPosition(float yValue)
+
+    public void SetYPosition(float yValue) // making the slider control the y position of robot sprite
     {
-        currentInstance.transform.position = new Vector3(0, yValue, 0);
+        if (currentInstance != null) // if you move the slider before you spawn the character it gives you a null reference error so i added this so that doesnt show 
+        {
+            currentInstance.transform.position = new Vector3(0, yValue, 0);
+        }
     }
-    public void SetRotation(float angle)
+
+    public void SetRotation(float angle) // setting rotation based on the slider position
     {
-        currentInstance.transform.eulerAngles = new Vector3(0, 0, angle);
+        if (currentInstance != null) // if you move the slider before you spawn the character it gives you a null reference error so i added this so that doesnt show 
+        {
+            currentInstance.transform.eulerAngles = new Vector3(0, 0, angle);
+        }
     }
 }
