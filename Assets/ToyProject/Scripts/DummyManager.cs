@@ -97,4 +97,8 @@ public class DummyManager : MonoBehaviour
     {
         currentInstance.transform.position = new Vector3(0, yValue, 0);
     }
+    public void SetRotation(float angle)
+    {
+        currentInstance.transform.eulerAngles = new Vector3(0, 0, angle);
+    }
 }
